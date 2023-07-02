@@ -11,7 +11,7 @@ on:
 jobs:
   build:
     name: Build & push docker image
-    runs-on: [self-hosted, macOS]
+    runs-on: self-hosted
     env:
       IMG_NAME: ${{ github.repository }}
     steps:
