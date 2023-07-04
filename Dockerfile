@@ -1,11 +1,14 @@
-FROM eclipse-temurin:17-jdk-alpine as build
-COPY . /usr/app
-WORKDIR /usr/app
-#RUN chmod +x mvnw && ./mvnw clean package
+#Pull the minimal Ubuntu image
+FROM ubuntu
 
-FROM eclipse-temurin:17-jre-alpine
-RUN apk update && apk upgrade && mkdir /app
-COPY --from=build /usr/app/target/*.jar /app/com.springboot.starterkit.jar
-EXPOSE 8080
+# Install Nginx
+RUN apt-get -y update && apt-get -y install nginx
 
-ENTRYPOINT ["java", "-jar", "/app/com.springboot.starterkit.jar"]
+# Copy the Nginx config
+COPY default /etc/nginx/sites-available/default
+
+# Expose the port for access
+EXPOSE 80/tcp
+
+# Run the Nginx server
+CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
