@@ -1,7 +1,7 @@
 FROM eclipse-temurin:17-jdk-alpine as build
 COPY . /usr/app
 WORKDIR /usr/app
-RUN chmod +x mvnw && ./mvnw clean package
+#RUN chmod +x mvnw && ./mvnw clean package
 
 FROM eclipse-temurin:17-jre-alpine
 RUN apk update && apk upgrade && mkdir /app
