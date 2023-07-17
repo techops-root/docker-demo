@@ -1,5 +1,9 @@
 #Pull the minimal Ubuntu image
-FROM ubuntu
+FROM nginx:latest
+
+RUN rm /etc/nginx/conf.d/default.conf
+
+COPY nginx-config/default.conf /etc/nginx/conf.d/default.conf
 
 WORKDIR /default
 
