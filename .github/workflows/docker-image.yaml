@@ -36,9 +36,9 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-
+          
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag 3122224/nginx-test:$(date +%s)
+        run: docker build . --file Dockerfile --tag ${{ env.IMG_NAME }}:${{ env.IMAGE_TAG }}
       
       - name: Docker Push
-        run: docker push 3122224/nginx-test:$(date +%s)
+        run: docker push ${{ env.IMG_NAME }}:${{ env.IMAGE_TAG }}
