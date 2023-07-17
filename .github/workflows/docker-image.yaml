@@ -38,7 +38,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag ${{ env.IMG_NAME }}:${{ env.IMAGE_TAG }}
+        run: docker build . --file Dockerfile --tag techops-root/docker-demo:${{ env.IMAGE_TAG }}
       
       - name: Docker Push
         run: docker push ${{ env.IMG_NAME }}:${{ env.IMAGE_TAG }}
