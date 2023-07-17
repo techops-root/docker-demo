@@ -43,13 +43,13 @@ jobs:
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag ${{ env.IMG_NAME }}:${{ env.IMAGE_TAG }}
       
-#       - name: Docker Push
-#         run: docker push ${{ env.IMG_NAME }}:${{ env.IMAGE_TAG }}
-#       - name: Build and push
-#         uses: docker/build-push-action@v3
-#         with:
-#           push: true
-#           tags: user/app:latest
+      - name: Docker Push
+        run: docker push ${{ env.IMG_NAME }}:${{ env.IMAGE_TAG }}
+      - name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          push: true
+          tags: user/app:latest
 
 #       - name: Build and push Docker image
 #         uses: docker/build-push-action@v2
