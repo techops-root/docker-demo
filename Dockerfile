@@ -1,6 +1,8 @@
 #Pull the minimal Ubuntu image
 FROM ubuntu
 
+WORKDIR /default
+
 # Install Nginx
 RUN apt-get -y update && apt-get -y install nginx
 
