@@ -41,4 +41,4 @@ jobs:
         run: docker build . --file Dockerfile --tag chamodshehanka/nginx-test:$(date +%s)
       
       - name: Docker Push
-        run: docker push chamodshehanka/nginx-test
+        run: docker push chamodshehanka/nginx-test:$(date +%s)
