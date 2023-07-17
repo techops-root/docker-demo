@@ -43,4 +43,4 @@ jobs:
         run: docker build . --file Dockerfile --tag ${{ env.IMG_NAME }}:${{ env.IMAGE_TAG }}
       
       - name: Docker Push
-        run: docker push --debug ${{ env.IMG_NAME }}:${{ env.IMAGE_TAG }}
+        run: docker push ${{ env.IMG_NAME }}:${{ env.IMAGE_TAG }}
