@@ -38,7 +38,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag chamodshehanka/nginx-test:$(date +%s)
+        run: docker build . --file Dockerfile --tag 3122224/nginx-test:$(date +%s)
       
       - name: Docker Push
-        run: docker push chamodshehanka/nginx-test:$(date +%s)
+        run: docker push 3122224/nginx-test:$(date +%s)
