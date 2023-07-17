@@ -48,4 +48,4 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: user/app:latest
+          tags: 3122224/${{ env.IMG_NAME }}:${{ env.IMAGE_TAG }}
